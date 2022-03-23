@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.31911.260
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService", "AuthenticationService\AuthenticationService.csproj", "{FF83FCA5-5DC7-47DA-907A-F8426D2E567D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationService", "AuthenticationService\AuthenticationService.csproj", "{FF83FCA5-5DC7-47DA-907A-F8426D2E567D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceshipService", "SpaceshipService\SpaceshipService.csproj", "{63814905-7205-4D4A-9C6F-018313AE159B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizationService", "AuthorizationService\AuthorizationService.csproj", "{946C7AA1-EA11-44E4-A608-C1F15D734AC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{FF83FCA5-5DC7-47DA-907A-F8426D2E567D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF83FCA5-5DC7-47DA-907A-F8426D2E567D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF83FCA5-5DC7-47DA-907A-F8426D2E567D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63814905-7205-4D4A-9C6F-018313AE159B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63814905-7205-4D4A-9C6F-018313AE159B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63814905-7205-4D4A-9C6F-018313AE159B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63814905-7205-4D4A-9C6F-018313AE159B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{946C7AA1-EA11-44E4-A608-C1F15D734AC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{946C7AA1-EA11-44E4-A608-C1F15D734AC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{946C7AA1-EA11-44E4-A608-C1F15D734AC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{946C7AA1-EA11-44E4-A608-C1F15D734AC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
