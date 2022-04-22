@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using AuthenticationService.Workers;
+using AuthenticationService.Contexts;
+using AuthenticationService.Models;
+using AuthenticationService.DTOs;
+using Microsoft.EntityFrameworkCore;
 
 namespace AuthenticationService.Controllers
 {
@@ -8,6 +11,20 @@ namespace AuthenticationService.Controllers
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
-        // Work in progress
+        private readonly DatabaseContext _dbContext;
+        [HttpPost]
+        public string HashPassword(string password)
+        {
+            HashWorker worker = new HashWorker();
+            string hashedPassword = worker.HashString(password);
+            return hashedPassword;
+        }
+        [HttpGet("user/{userId")]
+        public async Task<IActionResult> GetUserByUserId(int UserId)
+        {
+            var requestedUser = await _dbContext.Users.Where(x => x.Id == UserId).FirstOrDefaultAsync();
+            User user = new User(requestedUser.Username, requestedUser.Email, requestedUser.Password, requestedUser.CreationDate, requestedUser.LastLogin);
+            return Ok(new ApiResponse<User>(true, user));
+        }
     }
 }
