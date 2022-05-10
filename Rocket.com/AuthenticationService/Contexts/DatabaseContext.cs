@@ -21,10 +21,10 @@ namespace AuthenticationService.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<User>()
-            //    .HasData(
-            //        new User() { Username = "Job", Password = "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", Email = "Jobvanr@outlook.com", CreationDate = DateTime.Now, LastLogin = DateTime.Now }
-            //    ) ;
+            modelBuilder.Entity<User>()
+                .HasData(
+                    new User() { Username = "Job",  Email = "Jobvanr@outlook.com", Password = "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", CreationDate = DateTime.Now, LastLogin = DateTime.Now }
+                ) ;
         }
     }
 }

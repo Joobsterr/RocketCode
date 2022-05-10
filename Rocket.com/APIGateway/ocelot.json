@@ -1,0 +1,43 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/Spaceship",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 49155
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Spaceship",
+      "UpstreamHttpMethod": [ "Get", "Post", "Update" ]
+    },
+    {
+      "DownstreamPathTemplate": "/Authentication",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 49153
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Authentication",
+      "UpstreamHttpMethod": [ "Get", "Post", "Update" ]
+    },
+    {
+      "DownstreamPathTemplate": "/Authorization",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 49157
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Authorization",
+      "UpstreamHttpMethod": [ "Get", "Post", "Update" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:1338"
+  }
+}

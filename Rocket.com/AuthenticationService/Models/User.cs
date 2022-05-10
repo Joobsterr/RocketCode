@@ -16,14 +16,5 @@ namespace AuthenticationService.Models
         public DateTime CreationDate { get; set; }
         [Required]
         public DateTime LastLogin { get; set; }
-
-        public User(string username, string email, string password, DateTime creationDate, DateTime lastLogin)
-        {
-            Username = username;
-            Email = email;
-            Password = password;
-            CreationDate = creationDate;
-            LastLogin = lastLogin;
-        }
     }
 }

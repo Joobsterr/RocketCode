@@ -5,9 +5,13 @@ VisualStudioVersion = 17.1.31911.260
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationService", "AuthenticationService\AuthenticationService.csproj", "{FF83FCA5-5DC7-47DA-907A-F8426D2E567D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceshipService", "SpaceshipService\SpaceshipService.csproj", "{63814905-7205-4D4A-9C6F-018313AE159B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceshipService", "SpaceshipService\SpaceshipService.csproj", "{63814905-7205-4D4A-9C6F-018313AE159B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizationService", "AuthorizationService\AuthorizationService.csproj", "{946C7AA1-EA11-44E4-A608-C1F15D734AC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthorizationService", "AuthorizationService\AuthorizationService.csproj", "{946C7AA1-EA11-44E4-A608-C1F15D734AC5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIGateway", "APIGateway\APIGateway.csproj", "{3DDDAC26-A88B-49A9-A792-FFBBA2C3C08F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityService", "IdentityService\IdentityService.csproj", "{B75DD843-0055-455C-9DE2-3C0D892CB735}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{946C7AA1-EA11-44E4-A608-C1F15D734AC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{946C7AA1-EA11-44E4-A608-C1F15D734AC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{946C7AA1-EA11-44E4-A608-C1F15D734AC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DDDAC26-A88B-49A9-A792-FFBBA2C3C08F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DDDAC26-A88B-49A9-A792-FFBBA2C3C08F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DDDAC26-A88B-49A9-A792-FFBBA2C3C08F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DDDAC26-A88B-49A9-A792-FFBBA2C3C08F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B75DD843-0055-455C-9DE2-3C0D892CB735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B75DD843-0055-455C-9DE2-3C0D892CB735}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B75DD843-0055-455C-9DE2-3C0D892CB735}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B75DD843-0055-455C-9DE2-3C0D892CB735}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

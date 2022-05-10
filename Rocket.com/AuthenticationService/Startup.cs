@@ -23,7 +23,7 @@ namespace AuthenticationService
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TraineeInterfaceApi", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Authentication API", Version = "v1" });
             });
 
             services.AddDbContext<DatabaseContext>();
@@ -40,7 +40,7 @@ namespace AuthenticationService
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TraineeInterfaceApi v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Rocket.com Authentication API"));
             }
 
             app.UseCors(x => x
@@ -54,6 +54,11 @@ namespace AuthenticationService
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
 
         }
     }
