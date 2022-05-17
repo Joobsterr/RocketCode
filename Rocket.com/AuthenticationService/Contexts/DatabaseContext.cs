@@ -10,7 +10,7 @@ namespace AuthenticationService.Contexts
         public DbSet<User> Users { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = "Server=127.0.0.1;Port=3306;Database=RocketDB;Uid=root;Pwd=root;";
+            var connectionString = "Server=localhost,1433;Database=RocketDB;User Id=sa;Password=SQLDatabase123;";
             optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
             optionsBuilder.LogTo(Console.WriteLine, LogLevel.Information);
             optionsBuilder.EnableSensitiveDataLogging();

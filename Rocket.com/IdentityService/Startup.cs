@@ -1,8 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
-
-using IdentityServer4;
+﻿using IdentityServer4;
 using IdentityServerHost.Quickstart.UI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Reflection;
 
 namespace IdentityService
 {
@@ -28,6 +25,8 @@ namespace IdentityService
         {
             services.AddControllersWithViews();
 
+            var migrationAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
 
             var builder = services.AddIdentityServer(options =>
@@ -42,19 +41,16 @@ namespace IdentityService
             })
                 .AddTestUsers(TestUsers.Users)
                 // this adds the config data from DB (clients, resources, CORS)
-                .AddConfigurationStore(options =>
+                .AddConfigurationStore(opt =>
                 {
-                    options.ConfigureDbContext = builder => builder.UseSqlite(connectionString);
+                    opt.ConfigureDbContext = c => c.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+                                sql => sql.MigrationsAssembly(migrationAssembly));
                 })
-                // this adds the operational data from DB (codes, tokens, consents)
-                .AddOperationalStore(options =>
+                .AddOperationalStore(opt =>
                 {
-                    options.ConfigureDbContext = builder => builder.UseSqlite(connectionString);
-
-                    // this enables automatic token cleanup. this is optional.
-                    options.EnableTokenCleanup = true;
+                    opt.ConfigureDbContext = o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+                                sql => sql.MigrationsAssembly(migrationAssembly));
                 });
-
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
 
