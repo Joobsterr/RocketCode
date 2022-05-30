@@ -15,7 +15,7 @@ namespace MessageReader
             Console.WriteLine("Getting Connection ...");
 
             //your connection string 
-            string connString = "Server=localhost;Database=RocketDB;User Id=sa;Password=SQLDatabase123;";
+            string connString = "Server=localhost;Database=RabbitDB;User Id=sa;Password=SQLDatabase123;";
 
             //create instanace of database connection
             SqlConnection conn = new SqlConnection(connString);
@@ -44,7 +44,7 @@ namespace MessageReader
         {
             var Username = Message.Split(' ').Skip(2).FirstOrDefault();
             string commandText = "INSERT INTO AccountLogs VALUES (@message, @date);";
-            string connString = "Server=localhost;Database=RocketDB;User Id=sa;Password=SQLDatabase123;";
+            string connString = "Server=localhost;Database=RabbitDB;User Id=sa;Password=SQLDatabase123;";
 
             using (SqlConnection connection = new SqlConnection(connString))
             {

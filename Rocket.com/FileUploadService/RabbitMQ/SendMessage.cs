@@ -1,9 +1,8 @@
 ﻿using System;
 using RabbitMQ.Client;
 using System.Text;
-using IdentityServerHost.Quickstart.UI;
 
-namespace IdentityServerHost.Workers
+namespace FileUploadService
 {
     public class SendMessage
     {
@@ -16,7 +15,7 @@ namespace IdentityServerHost.Workers
             using var channel = connection.CreateModel();
             {
                 {
-                    channel.QueueDeclare(queue: "Login",
+                    channel.QueueDeclare(queue: "FileUpload",
                                          durable: true,
                                          exclusive: false,
                                          autoDelete: false,
@@ -26,7 +25,7 @@ namespace IdentityServerHost.Workers
                     var body = Encoding.UTF8.GetBytes(message);
 
                     channel.BasicPublish(exchange: "",
-                                         routingKey: "Login",
+                                         routingKey: "FileUpload",
                                          basicProperties: null,
                                          body: body);
                     Console.WriteLine(" [x] Sent {0}", message);
