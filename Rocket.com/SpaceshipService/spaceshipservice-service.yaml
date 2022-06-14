@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: spaceship
+  name: spaceship
+spec:
+  ports:
+    - protocol: "TCP"
+      port: 5008
+      targetPort: 80
+      name: http
+  selector:
+    app: spaceship
+status:
+  loadBalancer: {}

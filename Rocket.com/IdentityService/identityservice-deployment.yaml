@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: identityservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+        app: identityservice
+  strategy: {}
+  template:
+    metadata:
+        labels:
+            app: identityservice
+    spec:
+      containers:
+        - image: joobsterr/identity
+          name: identityservice
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80           
+          resources: 
+            limits:
+              cpu: 1000m
+              memory: 2048Mi
+            requests:
+              cpu: 500m
+              memory: 1024Mi
+      restartPolicy: Always
+status: {}

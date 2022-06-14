@@ -10,11 +10,8 @@ namespace FileUploadService.Controllers
     public class FileUploadController
     {
         [HttpPost]
-        [Route(nameof(Upload))]
-        public Task? Upload(string FileName, FileStream uploadedFile)
+        public Task? Upload(string FileName)
         {
-            SendMessage _sendMessage = new();
-            _sendMessage.Send("fileupload test") ;
             var connectionString = "DefaultEndpointsProtocol=https;" +
                 "AccountName=rocketimagestorage;" +
                 "AccountKey=Z0uGf4hOLuqddOfRIip9Rx5j/Nb86yOP6ihMzuhlbiSuI9qSsPjur8yxbukGIYyUL6zYK6xIovK8+AStRT3hPg==;" +
@@ -26,16 +23,12 @@ namespace FileUploadService.Controllers
                 blobContainerName: "rocketimagestorage",
                 blobName: FileName);
 
-            // upload the file
-            string path = @"C:\Users\Job\Documents\Semester 6\Individueel\" + FileName;
-
             // Create the file, or overwrite if the file exists.
-            FileStream fs = File.Create(path);
-            blobClient.Upload(fs);
+            blobClient.Upload(File.Create("Files/" + FileName + ".txt"));
 
-           // string extension = Path.GetExtension(fs.Name);
-           // SendMessage _sendMessage = new();
-           // _sendMessage.Send(fs.Name + ", " + extension + ", " + DateTime.Now) ;
+            // string extension = Path.GetExtension(fs.Name);
+            // SendMessage _sendMessage = new();
+            // _sendMessage.Send(fs.Name + ", " + extension + ", " + DateTime.Now) ;
             return null;
         }
     }

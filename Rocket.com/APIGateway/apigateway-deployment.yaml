@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apigateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+        app: apigateway
+  strategy: {}
+  template:
+    metadata:
+        labels:
+            app: apigateway
+    spec:
+      containers:
+        - image: joobsterr/apigate
+          name: apigateway
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80           
+          resources: 
+            limits:
+              cpu: 1000m
+              memory: 2048Mi
+            requests:
+              cpu: 500m
+              memory: 1024Mi
+      restartPolicy: Always
+status: {}

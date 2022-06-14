@@ -8,16 +8,20 @@ namespace SpaceshipService.Models
         public string ShipName { get; set; }
 
         [Required]
-        public Boolean Torque { get; set; }
+        public string Torque { get; set; }
 
         [Required]
         public DateTime ConstructionDate { get; set; }
 
         [Required]
-        public long Speed { get; set; }
+        public int Speed { get; set; }
 
         [Required]
         public int ManufacturerID { get; set; }
+
+        [Required]
+        [Key]
+        public int ID { get; set; }
 
     }
 }

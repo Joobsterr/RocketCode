@@ -7,8 +7,7 @@ using SpaceshipService.Models;
 using SpaceshipService.Models.DTO;
 
 namespace SpaceshipService.Controllers
-{
-    [Authorize]
+{ 
     [ApiController]
     [Route("[controller]")]
     [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]

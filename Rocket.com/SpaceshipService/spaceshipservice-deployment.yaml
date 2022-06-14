@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spaceship
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+        app: spaceship
+  strategy: {}
+  template:
+    metadata:
+        labels:
+            app: spaceship
+    spec:
+      containers:
+        - image: joobsterr/rocketimages
+          name: spaceshipservice
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80           
+          resources: 
+            limits:
+              cpu: 1000m
+              memory: 2048Mi
+            requests:
+              cpu: 500m
+              memory: 1024Mi
+      restartPolicy: Always
+status: {}
