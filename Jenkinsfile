@@ -3,7 +3,7 @@ node {
     checkout scm
   }
   stage('SonarQube Analysis') {
-    def scannerHome = tool name: 'rocket-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation';
+    def scannerHome = tool name: 'rocket-scanner';
     withSonarQubeEnv() {
       bat "dotnet ${scannerHome}\\SonarScanner.MSBuild.dll begin /k:\"RocketCOM\""
       bat "dotnet build"
