@@ -1,15 +1,13 @@
-pipeline {
-  agent { 
-    label 'built-in'
+node {
+  stage('SCM') {
+    checkout scm
   }
-  stages {
-    stage('Build') {
-      steps {
-        script {
-          def msbuild = tool name: 'RocketCOM', type: 'hudson.plugins.msbuild.MsBuildInstallation'
-          bat "${msbuild} SimpleWindowsProject.sln"
-        } 
-      } 
-    } 
-  } 
-} 
+  stage('SonarQube Analysis') {
+    def scannerHome = tool 'SonarScanner for MSBuild'
+    withSonarQubeEnv() {
+      bat "dotnet ${scannerHome}\\SonarScanner.MSBuild.dll begin /k:\"RocketCOM\""
+      bat "dotnet build"
+      bat "dotnet ${scannerHome}\\SonarScanner.MSBuild.dll end"
+    }
+  }
+}
